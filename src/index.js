@@ -1,7 +1,7 @@
 import _ from "lodash";
 import printMe from "./print.js";
 
-import "./style.css";
+import "./scss/styles.scss";
 import Icon from "./icon.png";
 
 if (process.env.NODE_ENV !== "production") {
