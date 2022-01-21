@@ -1,17 +1,7 @@
 @import "../../styles/variables";
-
-.header {
-    position: relative;
-}
-
-.logo {
-    position: relative;
-}
+@import "./partials/header";
+@import "./partials/footer";
 
 .main {
     position: relative;
-}
-
-.footer {
-    background-color: $blue;
 }

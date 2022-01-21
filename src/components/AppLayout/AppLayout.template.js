@@ -3,14 +3,14 @@ const logo = require("../../assets/images/logo.svg");
 export default (styles) =>
   `
   <header class="${styles.header}">
-    <div>
-        <img src="${logo}" id="logo" class="${styles.logo}" alt="Front-End K2">
-        <h1>Front-End</h1>
+    <div class="${styles["logo__section"]}">
+        <img src="${logo}" id="logo" class="${styles["logo__img"]}" alt="Front-End K2">
+        <h1 class="${styles["logo__title"]}">Front-End</h1>
     </div>
-    <div>
-        <nav>
-            <a href="#">Wiadomości</a>
-            <a href="#">Technologie</a>
+    <div class="${styles["nav__section"]}">
+        <nav class="${styles.nav}">
+            <a class="${styles["nav__element"]}" href="#">Wiadomości</a>
+            <a class="${styles["nav__element"]}" href="#">Technologie</a>
         </nav>
     </div>
   </header>

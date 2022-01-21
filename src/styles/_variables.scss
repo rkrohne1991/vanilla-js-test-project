@@ -1,6 +1,14 @@
 //COLORS
 
 $black: #000;
+$black-90: #272727;
 $white: #fff;
-$grey: #E5E5E5; 
+$grey: #E5E5E5;
 $blue: #118AB2;
+$orange-dark: #E06D00;
+
+//BREAKPOINT MIXINS
+
+$max-app-width: 1300px;
+
+$transition-3s: .3s;

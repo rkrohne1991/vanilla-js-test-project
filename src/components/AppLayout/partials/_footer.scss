@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+.footer {
+    font-size: 18px;
+    line-height: 29px;
+    font-weight: 700;
+    color: $white;
+    background-color: $blue;
+    display: flex;
+    justify-content: center;
+    padding: 42.5px 0;
+}
