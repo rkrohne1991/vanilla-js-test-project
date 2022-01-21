@@ -3,15 +3,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   devtool: "source-map",
+  context: path.resolve(__dirname, "./src"),
+
   entry: {
-    app: "./src/index.js",
+    app: "./",
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: "Development",
-      favicon: false,
       showErrors: true,
       cache: true,
+      inject: false,
+      hash: true,
+      template: "./index.html",
+      filename: "index.html",
     }),
   ],
   output: {

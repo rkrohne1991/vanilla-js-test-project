@@ -1,5 +1,5 @@
 {
-  "name": "k2-test",
+  "name": "vanilla-js-test-project",
   "version": "1.0.0",
   "description": "Vanilla JS Test Project",
   "repository": {
@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/rkrohne1991/k2-test#readme",
   "devDependencies": {
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
+    "@babel/core": "^7.16.10",
+    "@babel/preset-env": "^7.16.10",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
@@ -34,6 +34,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "core-js": "^3.20.3",
+    "lodash": "^4.17.21",
+    "regenerator-runtime": "^0.13.9"
   }
 }
