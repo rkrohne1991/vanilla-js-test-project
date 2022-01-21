@@ -3,5 +3,5 @@
 @import "./partials/footer";
 
 .main {
-    position: relative;
+    @extend .appWidth;
 }

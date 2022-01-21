@@ -6,9 +6,54 @@ $white: #fff;
 $grey: #E5E5E5;
 $blue: #118AB2;
 $orange-dark: #E06D00;
+$orange-light: #F49E4C;
 
 //BREAKPOINT MIXINS
 
 $max-app-width: 1300px;
 
 $transition-3s: .3s;
+
+//COMMON CLASSES
+
+.appWidth {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: $max-app-width;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    width: 230px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid $orange-light;
+    background: $white;
+    cursor: pointer;
+    transition: $transition-3s;
+}
+
+.btn-primary {
+    color: $white;
+    background: $orange-light;
+
+    &:hover {
+        background: $orange-dark;
+        border: 2px solid $orange-dark;
+    }
+}
+
+.btn-secondary {
+    color: $orange-light;
+    border: 2px solid $orange-light;
+    background: $white;
+
+    &:hover {
+        color: $white;
+        background: $orange-light;
+    }
+}

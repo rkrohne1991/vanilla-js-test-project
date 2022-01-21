@@ -1,14 +1,11 @@
 @import "../../../styles/variables";
 
 .header {
-    padding-left: 10px;
-    padding-right: 10px;
-    max-width: $max-app-width;
-    width: 100%;
-    margin: 0 auto;
+    @extend .appWidth;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 30px;
 }
 
 .logo {

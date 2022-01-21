@@ -1,7 +1,6 @@
 const logo = require("../../assets/images/logo.svg");
 
-export default (styles) =>
-  `
+const AppLayout = (styles) => `
   <header class="${styles.header}">
     <div class="${styles["logo__section"]}">
         <img src="${logo}" id="logo" class="${styles["logo__img"]}" alt="Front-End K2">
@@ -16,6 +15,7 @@ export default (styles) =>
   </header>
 
   <main class="${styles.main}">
+    <section class="welcome-section"></section>
     Main Section
   </main>
 
@@ -23,3 +23,5 @@ export default (styles) =>
     <div>K2</div>
   </footer>
 `;
+
+export default AppLayout;
