@@ -57,3 +57,20 @@ $transition-3s: .3s;
         background: $orange-light;
     }
 }
+
+.btn-link {
+    width: auto;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: $orange-light;
+
+    img {
+        margin-left: 23px;
+    }
+
+    &:hover {
+        color: $orange-dark;
+    }
+}

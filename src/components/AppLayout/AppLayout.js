@@ -1,6 +1,7 @@
 import { dom } from "../../utilities/functions";
 
 import Welcome from "../Welcome/Welcome";
+import Articles from "../Articles/Articles";
 
 import "../../styles/Base.scss";
 import styles from "./AppLayout.module.scss";
@@ -9,6 +10,7 @@ import template from "./AppLayout.template";
 class AppLayout {
   constructor() {
     this.welcomeTemplate = new Welcome();
+    this.articlesTemplate = new Articles();
   }
 
   start() {
@@ -22,10 +24,12 @@ class AppLayout {
 
   initSelectors = () => {
     this.welcomeContainer = dom(".welcome-section");
+    this.articlesContainer = dom(".articles-section");
   };
 
   appendElements = () => {
     this.welcomeContainer.appendChild(this.welcomeTemplate.getEl());
+    this.articlesContainer.appendChild(this.articlesTemplate.getEl());
   };
 
   render() {

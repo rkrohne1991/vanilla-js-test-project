@@ -1,0 +1,30 @@
+.articles {
+    &__heading {
+        position: relative;
+        text-align: center;
+
+        h2 {
+            font-size: 36px;
+            line-height: 49px;
+            font-weight: 700;
+            margin: 75px 0 22px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -16px;
+        margin-right: -16px;
+
+        & > * {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+
+    &__load-more {
+        margin-top: 22px;
+        text-align: center;
+    }
+}
