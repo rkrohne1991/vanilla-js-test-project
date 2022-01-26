@@ -86,7 +86,7 @@ const template = (styles) => {
 
   return `<div>
       <div class="${styles["articles__heading"]}">
-        <h2>Wiadomości</h2></div>
+        <h2>Wiadomości</h2>
       </div>
       <div id="articles__list" class="${styles["articles__list"]}"></div>
       <div class="${styles["articles__load-more"]}">

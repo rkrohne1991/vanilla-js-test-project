@@ -7,7 +7,13 @@
             font-size: 36px;
             line-height: 49px;
             font-weight: 700;
-            margin: 75px 0 22px;
+            margin: 46px 0 32px;
         }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 35px;
     }
 }
