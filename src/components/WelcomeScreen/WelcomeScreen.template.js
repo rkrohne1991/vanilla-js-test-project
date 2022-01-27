@@ -1,4 +1,4 @@
-import { dom } from "../../utilities/functions";
+import { dom, toggleScreen } from "../../utilities/functions";
 
 const template = (styles) => {
   setTimeout(() => {
@@ -9,17 +9,6 @@ const template = (styles) => {
     const welcomeScreenContainer = dom("#welcome-screen");
     const loginScreenContainer = dom("#login-screen");
     const registerScreenContainer = dom("#register-screen");
-
-    const toggleScreen = (hide, show) => {
-      hide.classList.remove("active");
-      hide.classList.add("hide");
-
-      setTimeout(() => {
-        hide.style.display = "none";
-        show.classList.add("active");
-        show.style.display = "block";
-      }, 500);
-    };
 
     loginButton.addEventListener("click", () => {
       toggleScreen(welcomeScreenContainer, loginScreenContainer);

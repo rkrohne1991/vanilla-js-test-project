@@ -19,9 +19,21 @@ const timestampFormat = (timestamp = Number, type = String) => {
   }
 };
 
+const toggleScreen = (hide, show) => {
+  hide.classList.remove("active");
+  hide.classList.add("hide");
+
+  setTimeout(() => {
+    hide.style.display = "none";
+    show.classList.add("active");
+    show.style.display = "block";
+  }, 500);
+};
+
 module.exports = {
   dom,
   setAttribute,
   newElement,
   timestampFormat,
+  toggleScreen,
 };

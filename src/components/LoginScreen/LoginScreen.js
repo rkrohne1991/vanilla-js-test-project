@@ -1,4 +1,4 @@
-import { dom } from "../../utilities/functions";
+import { dom, toggleScreen } from "../../utilities/functions";
 
 import template from "./LoginScreen.template";
 import SuccessScreen from "../Success/Success";
@@ -15,6 +15,7 @@ class LoginFormValidator {
   }
 
   initialize = () => {
+    this.noAccount();
     this.validateOnEntry();
     this.validateOnSubmit();
   };
@@ -28,7 +29,6 @@ class LoginFormValidator {
         const input = document.querySelector(`#${field}`);
         self.validateFields(input);
       });
-      console.log(this.formValid);
       this.setSuccess();
     });
   };
@@ -80,6 +80,16 @@ class LoginFormValidator {
       const currentScreen = dom("#login-screen");
       currentScreen.innerHTML = successTemplate.outerHTML;
     }
+  };
+
+  noAccount = () => {
+    const noAccountButton = dom("#no-account");
+    const loginScreenContainer = dom("#login-screen");
+    const registerScreenContainer = dom("#register-screen");
+
+    noAccountButton.addEventListener("click", () => {
+      toggleScreen(loginScreenContainer, registerScreenContainer);
+    });
   };
 }
 

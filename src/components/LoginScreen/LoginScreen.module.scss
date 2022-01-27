@@ -47,4 +47,16 @@
             }
         }
     }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button {
+            font-size: 12px;
+            line-height: 16px;
+            margin-top: 4px;
+        }
+    }
 }

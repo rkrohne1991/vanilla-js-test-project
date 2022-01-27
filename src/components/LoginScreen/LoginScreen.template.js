@@ -18,7 +18,10 @@ const template = (styles) => {
         <span>Zapamiętaj moją sesję</span>
       </div>
     </div>
-    <input type="submit" class="btn btn-primary" value="Dalej">
+    <div class="${styles["form__buttons"]}">
+      <input type="submit" class="btn btn-primary" value="Dalej">
+      <button id="no-account" type="button" class="btn btn-link">Nie mam konta</button>
+    </div>
   </form>
   `;
 
