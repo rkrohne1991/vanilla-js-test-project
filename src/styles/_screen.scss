@@ -1,0 +1,12 @@
+.screen {
+    
+    &.active {
+        animation: scale-display .3s;
+        display: block;
+    }
+
+    &.hide {
+        animation: scale-display--reversed .5s;
+        animation-fill-mode: forwards;
+    }
+}
