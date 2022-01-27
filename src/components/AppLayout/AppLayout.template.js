@@ -15,9 +15,9 @@ const AppLayout = (styles) => `
   </header>
 
   <main class="${styles.main}">
-    <section class="welcome-section"></section>
-    <section class="articles-section"></section>
-    <section class="technologies-section"></section>
+    <section class="section-welcome"></section>
+    <section class="section-articles"></section>
+    <section class="section-technologies"></section>
   </main>
 
   <footer class="${styles.footer}">

@@ -8,81 +8,96 @@ import {
 import quotes from "../../assets/images/quotes.svg";
 import loader from "../../assets/images/loader.svg";
 
-const template = (styles) => {
-  const fetchArticlesJSON = async () => {
-    const response = await fetch(
-      "https://my-json-server.typicode.com/TomaszJaworski/test-api/news"
-    );
+const template = (styles, fetch) => {
+  const errorMessage = () => {
+    dom("#loadMore").style.display = "none";
+    const selectContainer = dom("#articles__list");
+    selectContainer.style.display = "block";
+    selectContainer.style.margin = "0";
 
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      throw new Error(message);
-    }
+    // Article Error
+    const createArticle = newElement("div");
+    setAttribute(createArticle, "class", "article__error");
 
-    const articles = await response.json();
-    return articles;
+    // Article Error Title
+    const createErrorTitle = newElement("h2");
+    setAttribute(createErrorTitle, "class", "article__title-error");
+    createErrorTitle.innerHTML =
+      "Ups... coś poszło nie tak, spróbuj ponownie później...";
+    createArticle.append(createErrorTitle);
+    selectContainer.append(createArticle);
   };
 
-  fetchArticlesJSON().then((articles) => {
-    const selectContainer = dom("#articles__list");
+  fetch
+    .then((articles) => {
+      const selectContainer = dom("#articles__list");
 
-    for (const article of articles) {
-      // Article
-      const createArticle = newElement("div");
-      setAttribute(createArticle, "class", "article");
+      if (articles.length === 0) {
+        errorMessage();
+      }
 
-      // Article Container
-      const createArticleContainer = newElement("div");
-      setAttribute(createArticleContainer, "class", "article__container");
+      for (const [key, value] of Object.entries(articles)) {
+        const hiddenArticle = key > 4 ? "article-hidden" : "";
 
-      // Article Title
-      const createArticleTitle = newElement("div");
-      setAttribute(createArticleTitle, "class", "article__title");
+        // Article
+        const createArticle = newElement("div");
+        setAttribute(createArticle, "class", "article " + hiddenArticle);
 
-      const createArticleQuotes = newElement("img");
-      setAttribute(createArticleQuotes, "src", quotes);
+        // Article Container
+        const createArticleContainer = newElement("div");
+        setAttribute(createArticleContainer, "class", "article__container");
 
-      const createArticleHeader = newElement("h3");
-      createArticleHeader.innerHTML = `${article.title}`;
+        // Article Title
+        const createArticleTitle = newElement("div");
+        setAttribute(createArticleTitle, "class", "article__title");
 
-      createArticleTitle.append(createArticleQuotes, createArticleHeader);
+        const createArticleQuotes = newElement("img");
+        setAttribute(createArticleQuotes, "src", quotes);
 
-      // Article Date
-      const createArticleDate = newElement("div");
-      setAttribute(createArticleDate, "class", "article__date");
-      createArticleDate.innerHTML = `Data dodania: ${timestampFormat(
-        article.date,
-        "date"
-      )} ${timestampFormat(article.date, "time")}`;
+        const createArticleHeader = newElement("h3");
+        createArticleHeader.innerHTML = `${value.title}`;
 
-      // Article Image
-      const createArticleImageContainer = newElement("div");
-      setAttribute(
-        createArticleImageContainer,
-        "class",
-        "article__image-container"
-      );
+        createArticleTitle.append(createArticleQuotes, createArticleHeader);
 
-      const createArticleImg = newElement("img");
-      setAttribute(createArticleImg, "src", article.image);
-      createArticleImageContainer.appendChild(createArticleImg);
+        // Article Date
+        const createArticleDate = newElement("div");
+        setAttribute(createArticleDate, "class", "article__date");
+        createArticleDate.innerHTML = `Data dodania: ${timestampFormat(
+          value.date,
+          "date"
+        )} ${timestampFormat(value.date, "time")}`;
 
-      //Article Text
-      const createArticleText = newElement("div");
-      setAttribute(createArticleText, "class", "article__text");
-      createArticleText.innerHTML = `${article.text}`;
+        // Article Image
+        const createArticleImageContainer = newElement("div");
+        setAttribute(
+          createArticleImageContainer,
+          "class",
+          "article__image-container"
+        );
 
-      createArticleContainer.append(
-        createArticleTitle,
-        createArticleDate,
-        createArticleImageContainer,
-        createArticleText
-      );
+        const createArticleImg = newElement("img");
+        setAttribute(createArticleImg, "src", value.image);
+        createArticleImageContainer.appendChild(createArticleImg);
 
-      createArticle.appendChild(createArticleContainer);
-      selectContainer.appendChild(createArticle);
-    }
-  });
+        //Article Text
+        const createArticleText = newElement("div");
+        setAttribute(createArticleText, "class", "article__text");
+        createArticleText.innerHTML = `${value.text}`;
+
+        createArticleContainer.append(
+          createArticleTitle,
+          createArticleDate,
+          createArticleImageContainer,
+          createArticleText
+        );
+
+        createArticle.appendChild(createArticleContainer);
+        selectContainer.appendChild(createArticle);
+      }
+    })
+    .catch(() => {
+      errorMessage();
+    });
 
   return `<div>
       <div class="${styles["articles__heading"]}">
@@ -90,7 +105,7 @@ const template = (styles) => {
       </div>
       <div id="articles__list" class="${styles["articles__list"]}"></div>
       <div class="${styles["articles__load-more"]}">
-        <button class="btn btn-link">Załaduj więcej <img src="${loader}" alt="" /></button>
+        <button id="loadMore" class="btn btn-link" type="button">Załaduj więcej <img class="loader-img" src="${loader}" alt="Load More" /></button>
       </div>
     </div>
   `;

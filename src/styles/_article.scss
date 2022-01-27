@@ -1,6 +1,16 @@
 .article {
     flex: 0 0 auto;
     width: 50%;
+    animation: scale-display .5s;
+
+    &-hidden {
+        display: none;
+
+        &.active {
+            animation: scale-display .5s;
+            display: block;
+        }
+    }
 
     &__container {
         margin: 8px 0;
@@ -51,5 +61,9 @@
         line-height: 28px;
         color: $black-90;
         margin: 15px 0;
+    }
+
+    &__error {
+        text-align: center;
     }
 }

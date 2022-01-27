@@ -25,9 +25,9 @@ class AppLayout {
   };
 
   initSelectors = () => {
-    this.welcomeContainer = dom(".welcome-section");
-    this.articlesContainer = dom(".articles-section");
-    this.technologiesContainer = dom(".technologies-section");
+    this.welcomeContainer = dom(".section-welcome");
+    this.articlesContainer = dom(".section-articles");
+    this.technologiesContainer = dom(".section-technologies");
   };
 
   appendElements = () => {
