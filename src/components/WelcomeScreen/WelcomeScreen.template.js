@@ -2,8 +2,8 @@ import { dom } from "../../utilities/functions";
 
 const template = (styles) => {
   setTimeout(() => {
-    const loginButton = dom("#login");
-    const registerButton = dom("#register");
+    const loginButton = dom("#loginScreen");
+    const registerButton = dom("#registerScreen");
 
     // Screens
     const welcomeScreenContainer = dom("#welcome-screen");
@@ -32,9 +32,9 @@ const template = (styles) => {
 
   return `
     <h2>Dzień Dobry</h2>
-    <button id="login" class='btn btn-primary'>Zaloguj się</button>
+    <button id="loginScreen" class="btn btn-primary">Zaloguj się</button>
     <div class=${styles["welcome-container__lub"]}>lub</div>
-    <button id="register" class='btn btn-secondary'>Zarejestruj</button>
+    <button id="registerScreen" class='btn btn-secondary'>Zarejestruj</button>
   `;
 };
 
