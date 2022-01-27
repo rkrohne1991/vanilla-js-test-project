@@ -8,16 +8,16 @@ const AppLayout = (styles) => `
     </div>
     <div class="${styles["nav__section"]}">
         <nav class="${styles.nav}">
-            <a class="${styles["nav__element"]}" href="#">Wiadomości</a>
-            <a class="${styles["nav__element"]}" href="#">Technologie</a>
+            <a class="${styles["nav__element"]}" href="#wiadomosci">Wiadomości</a>
+            <a class="${styles["nav__element"]}" href="#technologie">Technologie</a>
         </nav>
     </div>
   </header>
 
   <main class="${styles.main}">
     <section class="section-welcome"></section>
-    <section class="section-articles"></section>
-    <section class="section-technologies"></section>
+    <section id="wiadomosci" class="section-articles"></section>
+    <section id="technologie" class="section-technologies"></section>
   </main>
 
   <footer class="${styles.footer}">

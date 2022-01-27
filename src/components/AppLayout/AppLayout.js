@@ -22,6 +22,7 @@ class AppLayout {
   didRender = () => {
     this.initSelectors();
     this.appendElements();
+    this.findNavButtons();
   };
 
   initSelectors = () => {
@@ -34,6 +35,31 @@ class AppLayout {
     this.welcomeContainer.appendChild(this.welcomeTemplate.getEl());
     this.articlesContainer.appendChild(this.articlesTemplate.getEl());
     this.technologiesContainer.appendChild(this.technologiesTemplate.getEl());
+  };
+
+  findNavButtons = () => {
+    const nav = document.getElementsByTagName("nav");
+    const buttons = nav[0].getElementsByTagName("a");
+
+    for (const button of buttons) {
+      this.navClickHandler(button);
+    }
+  };
+
+  navClickHandler = (button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      const href = button.getAttribute("href");
+      this.scrollToContent(dom(href));
+    });
+  };
+
+  scrollToContent = (element) => {
+    window.scroll({
+      behavior: "smooth",
+      left: 0,
+      top: element.offsetTop,
+    });
   };
 
   render() {
