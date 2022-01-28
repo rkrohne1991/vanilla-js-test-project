@@ -1,4 +1,6 @@
 import template from "./RegisterScreen.template";
+
+import styles from "../LoginScreen/LoginScreen.module.scss";
 import welcomeStyles from "../Welcome/Welcome.module.scss";
 
 export default class {
@@ -15,6 +17,6 @@ export default class {
   };
 
   render() {
-    this.el.innerHTML = template();
+    this.el.innerHTML = template(styles);
   }
 }

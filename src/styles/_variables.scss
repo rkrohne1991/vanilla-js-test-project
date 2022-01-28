@@ -76,6 +76,14 @@ $transition-3s: .3s;
     }
 }
 
+.divider {
+    display: block;
+    width: 73px;
+    height: 1px;
+    background-color: $orange-light;
+    margin: 13px auto;
+}
+
 @keyframes scale-display {
     0% {
         opacity: 0;
