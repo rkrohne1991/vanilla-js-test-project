@@ -3,7 +3,6 @@ import { dom, toggleScreen } from "../../utilities/functions";
 import template from "./LoginScreen.template";
 import LoginFormValidator from "../LoginFormValidator/LoginFormValidator";
 
-import styles from "./LoginScreen.module.scss";
 import welcomeStyles from "../Welcome/Welcome.module.scss";
 
 export default class {
@@ -42,6 +41,6 @@ export default class {
   };
 
   render = () => {
-    this.el.innerHTML = template(styles);
+    this.el.innerHTML = template();
   };
 }

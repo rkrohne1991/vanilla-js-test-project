@@ -1,8 +1,6 @@
 import { dom, toggleScreen } from "../../utilities/functions";
 
 import template from "./RegisterScreen.template";
-
-import styles from "../LoginScreen/LoginScreen.module.scss";
 import welcomeStyles from "../Welcome/Welcome.module.scss";
 
 export default class {
@@ -23,7 +21,6 @@ export default class {
     const logMeInButton = dom("#log-me-in");
     const loginScreenContainer = dom("#login-screen");
     const registerScreenContainer = dom("#register-screen");
-
     logMeInButton.addEventListener("click", () => {
       toggleScreen(registerScreenContainer, loginScreenContainer);
     });
@@ -36,6 +33,6 @@ export default class {
   };
 
   render() {
-    this.el.innerHTML = template(styles);
+    this.el.innerHTML = template();
   }
 }

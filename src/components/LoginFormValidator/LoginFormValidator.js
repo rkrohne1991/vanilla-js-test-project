@@ -43,7 +43,7 @@ class LoginFormValidator {
   validateFields = (field) => {
     // Check presence of values
     if (field.value.trim() === "") {
-      this.setStatus(field, "Pole nie może być puste", "error");
+      this.setStatus(field, "komunikat walidacji lorem", "error");
       this.formValid = false;
     } else {
       this.setStatus(field, null, "success");
@@ -52,19 +52,22 @@ class LoginFormValidator {
   };
 
   setStatus = (field, message, status) => {
-    const errorMessage = field.parentElement.querySelector(".error-message");
+    const errorMessage = field.parentElement.querySelector(
+      ".form__error-message"
+    );
 
     if (status === "success") {
       if (errorMessage) {
         errorMessage.innerText = "";
       }
-      field.classList.remove("input-error");
+      field.classList.remove("form__field-error");
       this.formValid = true;
     }
 
     if (status === "error") {
-      field.parentElement.querySelector(".error-message").innerText = message;
-      field.classList.add("input-error");
+      field.parentElement.querySelector(".form__error-message").innerText =
+        message;
+      field.classList.add("form__field-error");
       this.formValid = false;
     }
   };
