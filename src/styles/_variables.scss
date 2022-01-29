@@ -17,6 +17,19 @@ $max-app-width: 1300px;
 
 $transition-3s: .3s;
 
+//SIZES
+
+$small-font-size: 12px;
+$regular-font-size: 14px;
+
+//HEADINGS
+
+h2 {
+    font-size: 36px;
+    line-height: 49px;
+    font-weight: 700;
+}
+
 //COMMON CLASSES
 
 .appWidth {

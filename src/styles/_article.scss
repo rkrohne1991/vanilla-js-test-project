@@ -38,7 +38,7 @@
     }
 
     &__date {
-        font-size: 12px;
+        font-size: $small-font-size;
         line-height: 16px;
         font-weight: 400;
         color: $black;
@@ -57,7 +57,7 @@
     }
 
     &__text {
-        font-size: 12px;
+        font-size: $small-font-size;
         line-height: 28px;
         color: $black-90;
         margin: 15px 0;

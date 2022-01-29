@@ -36,7 +36,7 @@
         }
 
         &__label {
-            font-size: 14px;
+            font-size: $regular-font-size;
             line-height: 19px;
             font-weight: 300;
             color: $grey-50;
@@ -51,7 +51,7 @@
         }
 
         &::placeholder {
-            font-size: 14px;
+            font-size: $regular-font-size;
             color: $grey-50;
         }
 
@@ -63,7 +63,7 @@
     }
 
     &__error-message {
-        font-size: 12px;
+        font-size: $small-font-size;
         color: $red;
         display: none;
         text-align: left;
@@ -84,7 +84,7 @@
             margin: 0 auto;
 
             span {
-                font-size: 14px;
+                font-size: $regular-font-size;
                 line-height: 19px;
                 color: $black-90;
                 text-align: left;
@@ -147,7 +147,7 @@
         align-items: center;
 
         button {
-            font-size: 12px;
+            font-size: $small-font-size;
             line-height: 16px;
             margin-top: 4px;
         }
@@ -168,7 +168,7 @@
     }
 
     &__label {
-        font-size: 14px;
+        font-size: $regular-font-size;
         line-height: 19px;
         color: $black-90;
         text-align: left;
