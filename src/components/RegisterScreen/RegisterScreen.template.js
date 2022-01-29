@@ -18,13 +18,18 @@ const template = (styles) => {
       <input class="${styles["form__input"]}" id="email" type="text" placeholder="Adres e-mail">
       <span class="error-message"></span>
     </div>
-    <div class="${styles["form__input-group"]} ${styles["form__input-checkbox"]}">
-      <input class="${styles["form__checkbox-field"]}" id="privacy" type="checkbox">
-      <label for="privacy">Wyrażam zgodę na lorem ipsum lorem ipsum</label>
+    <div class="${styles["form__input-group"]}">
+      <div class="${styles["form__privacy"]}">
+        <label class="form__checkbox-container">
+          <input class="form__checkbox" id="privacy" type="checkbox">
+          <span class="form__checkbox-background"></span>
+        </label>
+        <label class="form__label" for="privacy">Wyrażam zgodę na lorem ipsum lorem ipsum</label>
+      </div>
     </div>
-    <div class="${styles["form__buttons"]}" style="margin-top: 45px">
+    <div class="${styles["form__buttons"]}" style="margin-top: 28px">
       <input type="submit" class="btn btn-primary" value="Załóż konto">
-      <button id="no-account" type="button" class="btn btn-link">Chce się zalogować</button>
+      <button id="log-me-in" type="button" class="btn btn-link">Chce się zalogować</button>
     </div>
   </form>
   `;

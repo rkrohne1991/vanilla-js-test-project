@@ -1,3 +1,5 @@
+import { dom, toggleScreen } from "../../utilities/functions";
+
 import template from "./RegisterScreen.template";
 
 import styles from "../LoginScreen/LoginScreen.module.scss";
@@ -11,8 +13,25 @@ export default class {
     this.el.style.display = "none";
   }
 
+  activateForm = () => {
+    setTimeout(() => {
+      this.logMeIn();
+    });
+  };
+
+  logMeIn = () => {
+    const logMeInButton = dom("#log-me-in");
+    const loginScreenContainer = dom("#login-screen");
+    const registerScreenContainer = dom("#register-screen");
+
+    logMeInButton.addEventListener("click", () => {
+      toggleScreen(registerScreenContainer, loginScreenContainer);
+    });
+  };
+
   getEl = () => {
     this.render();
+    this.activateForm();
     return this.el;
   };
 
