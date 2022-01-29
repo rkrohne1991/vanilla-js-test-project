@@ -30,10 +30,29 @@ const toggleScreen = (hide, show) => {
   }, 500);
 };
 
+const togglePassword = () => {
+  setTimeout(() => {
+    const togglePasswordButton = dom(".form__toggle-password");
+    const togglePasswordIcon = togglePasswordButton.querySelector("img");
+
+    togglePasswordIcon.addEventListener("click", (e) => {
+      const parentContainer = e.target.closest(".form__input-group");
+      const passwordInput = parentContainer.querySelector("input");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    });
+  });
+};
+
 module.exports = {
   dom,
   setAttribute,
   newElement,
   timestampFormat,
   toggleScreen,
+  togglePassword,
 };

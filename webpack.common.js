@@ -17,6 +17,7 @@ module.exports = {
       hash: true,
       template: "./index.html",
       filename: "index.html",
+      favicon: "./assets/images/favico.ico",
     }),
   ],
   output: {
@@ -37,7 +38,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: "asset/resource",
       },
       {

@@ -34,8 +34,19 @@ class LoginFormValidator {
       const input = document.querySelector(`#${field}`);
 
       input.addEventListener("input", (event) => {
+        const fieldLabel = event.target.parentElement.querySelector(
+          ".form__field__label"
+        );
+        fieldLabel.style.display = "block";
         this.formValid = false;
         self.validateFields(input);
+      });
+
+      input.addEventListener("focus", (event) => {
+        const fieldLabel = event.target.parentElement.querySelector(
+          ".form__field__label"
+        );
+        fieldLabel.style.display = "block";
       });
     });
   };
@@ -55,6 +66,7 @@ class LoginFormValidator {
     const errorMessage = field.parentElement.querySelector(
       ".form__error-message"
     );
+    const fieldLabel = field.parentElement.querySelector(".form__field__label");
 
     if (status === "success") {
       if (errorMessage) {
@@ -62,6 +74,7 @@ class LoginFormValidator {
       }
       field.classList.remove("form__field-error");
       this.formValid = true;
+      fieldLabel.style.display = "none";
     }
 
     if (status === "error") {
@@ -69,6 +82,7 @@ class LoginFormValidator {
         message;
       field.classList.add("form__field-error");
       this.formValid = false;
+      fieldLabel.style.display = "block";
     }
   };
 

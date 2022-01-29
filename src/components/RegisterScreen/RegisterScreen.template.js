@@ -2,11 +2,11 @@ const template = () => {
   const registrationForm = `
   <form id="registerForm" class="form">
     <div class="form__input-group">
-      <input class="form__field" id="login" type="text" placeholder="Login">
+      <input class="form__field" id="a" type="text" placeholder="Login">
       <span class="error-message"></span>
     </div>
     <div class="form__input-group">
-      <input class="form__field" id="password" type="text" placeholder="Hasło">
+      <input class="form__field" id="b" type="text" placeholder="Hasło">
       <span class="error-message"></span>
     </div>
     <div class="divider"></div>

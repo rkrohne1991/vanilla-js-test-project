@@ -16,4 +16,3 @@ package-lock.json
 !.storybook
 !.npmrc
 !.prettierignore
-!dist/index.html

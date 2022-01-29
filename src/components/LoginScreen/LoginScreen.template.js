@@ -1,12 +1,23 @@
+import { togglePassword } from "../../utilities/functions";
+
+import showPasswordIcon from "../../assets/images/show-password-icon.svg";
+
 const template = () => {
+  togglePassword();
+
   const loginForm = `
   <form id="loginForm" class="form">
     <div class="form__input-group">
+      <label class="form__field__label" for="login">Login</label>
       <input class="form__field" id="login" type="text" placeholder="Login">
       <span class="form__error-message"></span>
     </div>
     <div class="form__input-group">
-      <input class="form__field" id="password" type="text" placeholder="Hasło">
+      <label class="form__field__label" for="password">Hasło</label>
+      <input class="form__field" id="password" type="password" placeholder="Hasło">
+      <button type="button" id="togglePassword" class="form__toggle-password">
+        <img src="${showPasswordIcon}" alt="Toggle Password" />
+      </button>
       <span class="form__error-message"></span>
     </div>
     <div class="form__input-group form__input-switch">
