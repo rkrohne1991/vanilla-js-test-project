@@ -1,16 +1,28 @@
 const logo = require("../../assets/images/logo.svg");
 
-const AppLayout = (styles) => `
+const AppLayout = (styles, openMenu) => {
+  const navigationButtons = (classContainer, classElement) => {
+    return `
+      <nav class="${classContainer}">
+        <a class="${classElement}" href="#wiadomosci">Wiadomości</a>
+        <a class="${classElement}" href="#technologie">Technologie</a>
+      </nav>
+    `;
+  };
+
+  return `
   <header class="${styles.header}">
     <div class="${styles["logo__section"]}">
-        <img src="${logo}" id="logo" class="${styles["logo__img"]}" alt="Front-End K2">
+        <img src="${logo}" id="logo" class="${
+    styles["logo__img"]
+  }" alt="Front-End" />
         <h1 class="${styles["logo__title"]}">Front-End</h1>
     </div>
     <div class="${styles["nav__section"]}">
-        <nav class="${styles.nav}">
-            <a class="${styles["nav__element"]}" href="#wiadomosci">Wiadomości</a>
-            <a class="${styles["nav__element"]}" href="#technologie">Technologie</a>
-        </nav>
+        <button class="mobile-nav__toggle mobile-nav__toggle-open">
+          <img src="${openMenu}" id="menuOpen" alt="Menu Open" />
+        </button>
+        ${navigationButtons(styles.nav, styles["nav__element"])}
     </div>
   </header>
 
@@ -23,6 +35,14 @@ const AppLayout = (styles) => `
   <footer class="${styles.footer}">
     <div>K2</div>
   </footer>
+
+  <div class="mobile-nav">
+    ${navigationButtons(
+      styles.nav + " mobile-nav__buttons",
+      styles["nav__element"] + " mobile-nav__element"
+    )}
+  </div>
 `;
+};
 
 export default AppLayout;

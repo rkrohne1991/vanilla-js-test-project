@@ -1,0 +1,45 @@
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    transform: translateX(100%);
+    transition: all .5s ease-in-out;
+
+    @media (min-width: $tablet-breakpoint) {
+        display: none;
+    }
+
+    &-active {
+        transform: translateX(0);
+    }
+
+    &__toggle {
+        background: transparent;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+
+        img {
+            transition: $transition-3s;
+        }
+
+        @media (min-width: $tablet-breakpoint) {
+            display: none;
+        }
+    }
+
+    &__buttons {
+        display: block !important;
+        margin-top: 118px;
+        text-align: center;
+    }
+
+    &__element {
+        margin-bottom: 30px;
+    }
+}

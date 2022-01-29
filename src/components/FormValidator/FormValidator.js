@@ -1,5 +1,3 @@
-import { dom } from "../../utilities/functions";
-
 import SuccessScreen from "../Success/Success";
 
 class FormValidator {
@@ -116,7 +114,6 @@ class FormValidator {
   };
 
   setSuccess = () => {
-    console.log(this.form.parentElement.innerHTML);
     if (this.formValid) {
       const successTemplate = this.SuccessScreen.getEl();
       this.form.parentElement.innerHTML = successTemplate.outerHTML;

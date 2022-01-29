@@ -4,6 +4,7 @@
 @import "./technology";
 @import "./screen";
 @import "./form";
+@import "./mobile-nav";
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
@@ -27,5 +28,9 @@ body {
 
     @media (min-width: $tablet-breakpoint) {
         background-color: $grey;
+    }
+
+    &.mobile-nav-active {
+        overflow: hidden;
     }
 }

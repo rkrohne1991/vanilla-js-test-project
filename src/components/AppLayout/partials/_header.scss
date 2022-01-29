@@ -23,6 +23,8 @@
     &__img {
         height: 20px;
         width: 20px;
+        position: relative;
+        z-index: 1;
 
         @media (min-width: $tablet-breakpoint) {
             height: 43px;
@@ -42,15 +44,14 @@
 }
 
 .nav {
-    display: flex;
+    display: none;
+
+    @media (min-width: $tablet-breakpoint) {
+        display: flex;
+    }
 
     &__section {
         position: relative;
-        display: none;
-
-        @media (min-width: $tablet-breakpoint) {
-            display: block;
-        }
     }
 
     &__element {

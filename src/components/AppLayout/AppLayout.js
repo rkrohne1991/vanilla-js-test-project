@@ -8,11 +8,15 @@ import "../../styles/Base.scss";
 import styles from "./AppLayout.module.scss";
 import template from "./AppLayout.template";
 
+const openMenu = require("../../assets/images/menu-hamburger-icon.svg");
+const closeMenu = require("../../assets/images/menu-close-icon.svg");
+
 class AppLayout {
   constructor() {
     this.welcomeTemplate = new Welcome();
     this.articlesTemplate = new Articles();
     this.technologiesTemplate = new Technologies();
+    this.mobileNavActive = false;
   }
 
   start() {
@@ -23,6 +27,7 @@ class AppLayout {
     this.initSelectors();
     this.appendElements();
     this.findNavButtons();
+    this.mobileNav();
   };
 
   initSelectors = () => {
@@ -38,10 +43,17 @@ class AppLayout {
   };
 
   findNavButtons = () => {
-    const nav = document.getElementsByTagName("nav");
-    const buttons = nav[0].getElementsByTagName("a");
+    const desktopNav = document.getElementsByTagName("nav");
+    const desktopButtons = desktopNav[0].getElementsByTagName("a");
 
-    for (const button of buttons) {
+    const mobileNav = dom(".mobile-nav");
+    const mobileButtons = mobileNav.getElementsByTagName("a");
+
+    for (const button of desktopButtons) {
+      this.navClickHandler(button);
+    }
+
+    for (const button of mobileButtons) {
       this.navClickHandler(button);
     }
   };
@@ -49,6 +61,14 @@ class AppLayout {
   navClickHandler = (button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
+
+      const mainParent = event.target.parentElement.parentElement;
+
+      if (mainParent.classList.contains("mobile-nav")) {
+        this.mobileNavActive = false;
+        this.isMobileNavActive(false);
+      }
+
       const href = button.getAttribute("href");
       this.scrollToContent(dom(href));
     });
@@ -62,8 +82,35 @@ class AppLayout {
     });
   };
 
+  mobileNav = () => {
+    const openNav = dom(".mobile-nav__toggle-open");
+    openNav.addEventListener("click", (event) => {
+      this.mobileNavActive = !this.mobileNavActive;
+
+      const currentButton = event.target;
+      currentButton.setAttribute(
+        "src",
+        this.mobileNavActive ? closeMenu : openMenu
+      );
+      this.isMobileNavActive(this.mobileNavActive);
+    });
+  };
+
+  isMobileNavActive = (isActive) => {
+    const mobileNav = dom(".mobile-nav");
+    const body = dom("body");
+
+    if (isActive) {
+      mobileNav.classList.add("mobile-nav-active");
+      body.classList.add("mobile-nav-active");
+    } else {
+      mobileNav.classList.remove("mobile-nav-active");
+      body.classList.remove("mobile-nav-active");
+    }
+  };
+
   render() {
-    document.body.insertAdjacentHTML("afterbegin", template(styles));
+    document.body.insertAdjacentHTML("afterbegin", template(styles, openMenu));
     this.didRender();
   }
 }
