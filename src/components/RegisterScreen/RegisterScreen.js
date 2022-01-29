@@ -1,6 +1,8 @@
 import { dom, toggleScreen } from "../../utilities/functions";
 
 import template from "./RegisterScreen.template";
+import FormValidator from "../FormValidator/FormValidator";
+
 import welcomeStyles from "../Welcome/Welcome.module.scss";
 
 export default class {
@@ -13,6 +15,12 @@ export default class {
 
   activateForm = () => {
     setTimeout(() => {
+      const form = document.querySelector("#registerForm");
+      // const fields = ["newLogin", "newPassword", "name", "email", "privacy"];
+      const fields = ["newLogin", "newPassword", "name", "email"];
+
+      const validator = new FormValidator(form, fields);
+      validator.initialize();
       this.logMeIn();
     });
   };

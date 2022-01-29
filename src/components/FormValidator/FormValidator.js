@@ -2,7 +2,7 @@ import { dom } from "../../utilities/functions";
 
 import SuccessScreen from "../Success/Success";
 
-class LoginFormValidator {
+class FormValidator {
   constructor(form, fields) {
     this.SuccessScreen = new SuccessScreen();
     this.form = form;
@@ -34,19 +34,25 @@ class LoginFormValidator {
       const input = document.querySelector(`#${field}`);
 
       input.addEventListener("input", (event) => {
-        const fieldLabel = event.target.parentElement.querySelector(
-          ".form__field__label"
-        );
-        fieldLabel.style.display = "block";
+        const fieldLabel =
+          event.target.parentElement.querySelector(".form__field__label") ||
+          false;
+        if (fieldLabel) {
+          fieldLabel.style.display = "block";
+        }
         this.formValid = false;
         self.validateFields(input);
       });
 
       input.addEventListener("focus", (event) => {
-        const fieldLabel = event.target.parentElement.querySelector(
-          ".form__field__label"
-        );
-        fieldLabel.style.display = "block";
+        const fieldLabel =
+          event.target.parentElement.querySelector(".form__field__label") ||
+          false;
+        if (fieldLabel) {
+          fieldLabel.style.display = "block";
+        }
+        this.formValid = false;
+        self.validateFields(input);
       });
     });
   };
@@ -60,39 +66,62 @@ class LoginFormValidator {
       this.setStatus(field, null, "success");
       this.formValid = true;
     }
+
+    // check for a valid email address
+    if (field.type === "email") {
+      const re = /\S+@\S+\.\S+/;
+      if (re.test(field.value)) {
+        this.setStatus(field, null, "success");
+      } else {
+        this.setStatus(field, "komunikat walidacji lorem", "error");
+      }
+    }
+
+    // check for a valid checkbox privacy
+    // if (field.id === "privacy" && field.checked === false) {
+    //   // this.setStatus(field, "komunikat walidacji lorem", "error");
+    //   this.formValid = false;
+    // } else {
+    //   // this.setStatus(field, null, "success");
+    //   this.formValid = true;
+    // }
   };
 
   setStatus = (field, message, status) => {
     const errorMessage = field.parentElement.querySelector(
       ".form__error-message"
     );
-    const fieldLabel = field.parentElement.querySelector(".form__field__label");
+    const fieldLabel =
+      field.parentElement.querySelector(".form__field__label") || false;
 
     if (status === "success") {
-      if (errorMessage) {
-        errorMessage.innerText = "";
-      }
+      errorMessage.innerText = "";
+      errorMessage.style.display = "none";
       field.classList.remove("form__field-error");
       this.formValid = true;
-      fieldLabel.style.display = "none";
+      if (fieldLabel) {
+        fieldLabel.style.display = "none";
+      }
     }
 
     if (status === "error") {
-      field.parentElement.querySelector(".form__error-message").innerText =
-        message;
+      errorMessage.innerText = message;
+      errorMessage.style.display = "block";
       field.classList.add("form__field-error");
       this.formValid = false;
-      fieldLabel.style.display = "block";
+      if (fieldLabel) {
+        fieldLabel.style.display = "block";
+      }
     }
   };
 
   setSuccess = () => {
+    console.log(this.form.parentElement.innerHTML);
     if (this.formValid) {
       const successTemplate = this.SuccessScreen.getEl();
-      const currentScreen = dom("#login-screen");
-      currentScreen.innerHTML = successTemplate.outerHTML;
+      this.form.parentElement.innerHTML = successTemplate.outerHTML;
     }
   };
 }
 
-export default LoginFormValidator;
+export default FormValidator;

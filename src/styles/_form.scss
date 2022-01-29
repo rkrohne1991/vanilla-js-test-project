@@ -65,7 +65,7 @@
     &__error-message {
         font-size: 12px;
         color: $red;
-        display: block;
+        display: none;
         text-align: left;
         padding: 9px 20px;
     }
@@ -158,6 +158,13 @@
         width: 100%;
         display: flex;
         margin: 0 auto;
+
+        &-message {
+            position: absolute;
+            width: 300px;
+            top: 25px;
+            left: 0;
+        }
     }
 
     &__label {

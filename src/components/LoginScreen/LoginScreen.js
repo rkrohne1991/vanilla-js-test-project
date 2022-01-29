@@ -1,7 +1,7 @@
 import { dom, toggleScreen } from "../../utilities/functions";
 
 import template from "./LoginScreen.template";
-import LoginFormValidator from "../LoginFormValidator/LoginFormValidator";
+import FormValidator from "../FormValidator/FormValidator";
 
 import welcomeStyles from "../Welcome/Welcome.module.scss";
 
@@ -18,7 +18,7 @@ export default class {
       const form = document.querySelector("#loginForm");
       const fields = ["login", "password"];
 
-      const validator = new LoginFormValidator(form, fields);
+      const validator = new FormValidator(form, fields);
       validator.initialize();
       this.noAccount();
     });
