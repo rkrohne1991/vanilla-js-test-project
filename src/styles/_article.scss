@@ -1,7 +1,10 @@
 .article {
-    flex: 0 0 auto;
-    width: 50%;
     animation: scale-display .5s;
+
+    @media (min-width: $tablet-breakpoint) {
+        flex: 0 0 auto;
+        width: 50%;
+    }
 
     &-hidden {
         display: none;
@@ -15,25 +18,52 @@
     &__container {
         margin: 8px 0;
         overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (min-width: $tablet-breakpoint) {
+            display: block;
+            flex-wrap: nowrap;
+        }
     }
 
     &__title {
         display: flex;
         align-items: baseline;
-        padding: 0 3px;
+        padding: 0 0 0 13px;
+        order: 1;
+        width: 50%;
+        flex: 1;
+
+        @media (min-width: $tablet-breakpoint) {
+            max-width: none;
+            width: 100%;
+            padding: 0 3px;
+        }
 
         img {
             margin-right: 16px;
             position: relative;
             top: 5px;
+            display: none;
+
+            @media (min-width: $tablet-breakpoint) {
+                display: block;
+            }
         }
 
         h3 {
-            font-size: 24px;
-            line-height: 33px;
+            font-size: 18px;
+            line-height: 25px;
             font-weight: 700;
-            margin: 0 0 28px;
+            margin: 0 0 0;
             color: $black-90;
+
+            @media (min-width: $tablet-breakpoint) {
+                font-size: 24px;
+                line-height: 33px;
+                margin: 0 0 28px;
+            }
         }
     }
 
@@ -44,11 +74,26 @@
         color: $black;
         padding: 0 1px;
         margin-bottom: 10px;
+        display: none;
+
+        @media (min-width: $tablet-breakpoint) {
+            display: block;
+        }
     }
 
     &__image-container {
-        height: 145px;
+        height: auto;
         overflow: hidden;
+        z-index: 0;
+        width: 50%;
+        max-width: 125px;
+
+        @media (min-width: $tablet-breakpoint) {
+            display: block;
+            max-width: unset;
+            width: 100%;
+            height: 145px;
+        }
 
         img {
             width: 100%;
@@ -57,10 +102,16 @@
     }
 
     &__text {
-        font-size: $small-font-size;
+        font-size: $regular-font-size;
         line-height: 28px;
         color: $black-90;
-        margin: 15px 0;
+        margin: 0 0 28px;
+        order: 2;
+
+        @media (min-width: $tablet-breakpoint) {
+            display: block;
+            margin: 15px 0;
+        }
     }
 
     &__error {

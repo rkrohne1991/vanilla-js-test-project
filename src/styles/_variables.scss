@@ -14,7 +14,8 @@ $red: #EB5757;
 //BREAKPOINT MIXINS
 
 $max-app-width: 1300px;
-
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1024px;
 $transition-3s: .3s;
 
 //SIZES
@@ -24,20 +25,31 @@ $regular-font-size: 14px;
 
 //HEADINGS
 
+h1,
 h2 {
-    font-size: 36px;
-    line-height: 49px;
+    font-size: 30px;
+    line-height: 41px;
     font-weight: 700;
+
+    @media (min-width: $tablet-breakpoint) {
+        font-size: 36px;
+        line-height: 49px;
+    }
 }
 
 //COMMON CLASSES
 
 .appWidth {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     max-width: $max-app-width;
     width: 100%;
     margin: 0 auto;
+
+    @media (min-width: $tablet-breakpoint) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .btn {

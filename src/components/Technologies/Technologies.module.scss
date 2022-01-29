@@ -1,16 +1,26 @@
+@import "../../styles/variables";
+
 .technologies {
     &__heading {
         position: relative;
         text-align: center;
 
         h2 {
-            margin: 46px 0 32px;
+            margin: 22px 0 46px;
+
+            @media (min-width: $tablet-breakpoint) {
+                margin: 46px 0 32px;
+            }
         }
     }
 
     &__list {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 35px;
+        margin-bottom: 75px;
+
+        @media (min-width: $desktop-breakpoint) {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
     }
 }

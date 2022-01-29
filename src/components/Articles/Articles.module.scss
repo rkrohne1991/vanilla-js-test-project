@@ -1,27 +1,42 @@
+@import "../../styles/variables";
+
 .articles {
     &__heading {
         position: relative;
         text-align: center;
 
         h2 {
-            margin: 75px 0 22px;
+            margin: -7px 0 0;
+
+            @media (min-width: $tablet-breakpoint) {
+                margin: 75px 0 22px;
+            }
         }
     }
 
     &__list {
-        display: flex;
-        flex-wrap: wrap;
+        display: block;
         margin-left: -16px;
         margin-right: -16px;
 
-        & > * {
+        &>* {
             padding-left: 16px;
             padding-right: 16px;
+        }
+
+        @media (min-width: $tablet-breakpoint) {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 
     &__load-more {
-        margin-top: 22px;
+        margin-top: 0;
         text-align: center;
+        margin-top: -18px;
+
+        @media (min-width: $tablet-breakpoint) {
+            margin-top: 22px;
+        }
     }
 }

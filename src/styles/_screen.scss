@@ -1,4 +1,6 @@
 .screen {
+    margin-top: 18px;
+    margin-bottom: 18px;
 
     &.hide {
         animation: scale-display--reversed .5s;

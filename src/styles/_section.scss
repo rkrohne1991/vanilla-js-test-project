@@ -1,6 +1,17 @@
+header,
+footer {
+    animation: scale-display .5s;
+}
+
 .section {
     &-welcome {
         animation: scale-display .5s;
+        margin-left: -20px;
+        margin-right: -20px;
+
+        @media (min-width: $tablet-breakpoint) {
+            margin: 0;
+        }
     }
 
     &-articles {
